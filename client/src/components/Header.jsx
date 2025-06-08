@@ -45,7 +45,7 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to="/signin">
-          <Button color="purple">Sign In</Button>
+          <Button color="purple" outline>Sign In</Button>
         </Link>
         <NavbarToggle />
       </div>
