@@ -44,7 +44,7 @@ export default function Header() {
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
           <FaMoon />
         </Button>
-        <Link to="/signin">
+        <Link to="/signup">
           <Button color="purple" outline>Sign In</Button>
         </Link>
         <NavbarToggle />
