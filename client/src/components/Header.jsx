@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   Navbar,
+  TextInput,
+  Avatar,
   NavbarLink,
   NavbarCollapse,
-  TextInput,
   NavbarToggle
 } from 'flowbite-react';
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
   const location = useLocation();
   const path = location.pathname;
+  const { currentUser } = useSelector((state) => state.user);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <Navbar className="border-b-2">
@@ -44,11 +48,53 @@ export default function Header() {
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
           <FaMoon />
         </Button>
-        <Link to="/signin">
-          <Button color="purple" outline>Sign In</Button>
-        </Link>
+
+        {currentUser ? (
+          <div className="relative">
+            <Avatar
+              alt='user'
+              img={currentUser.profilePicture}
+              rounded
+              className="cursor-pointer"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            />
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border">
+                <div className="px-4 py-3 border-b">
+                  <span className='block text-sm'>@{currentUser.username}</span>
+                  <span className='block text-sm font-medium truncate text-gray-500'>
+                    {currentUser.email}
+                  </span>
+                </div>
+                <Link 
+                  to={'/dashboard?tab=profile'}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Profile
+                </Link>
+                <hr />
+                <Link 
+                  to={'/'}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Sign Out
+                </Link>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link to='/signin'>
+            <Button color='purple' outline>
+              Sign In
+            </Button>
+          </Link>
+        )}
+
         <NavbarToggle />
       </div>
+
       <NavbarCollapse>
         <NavbarLink as={Link} to="/" active={path === '/'}>
           Home
