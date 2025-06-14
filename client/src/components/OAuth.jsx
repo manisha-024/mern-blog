@@ -42,7 +42,7 @@ export default function OAuth() {
       outline
     >
       <AiFillGoogleCircle className='w-6 h-6' />
-      Sign In with Google
+      Continue with Google
     </Button>
   )
 }

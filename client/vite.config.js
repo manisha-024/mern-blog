@@ -14,4 +14,5 @@ export default defineConfig({
     },
   },
   plugins: [tailwindcss(), react(), flowbiteReact()],
+  darkMode: 'class',
 })
