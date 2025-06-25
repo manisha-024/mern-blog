@@ -109,7 +109,7 @@ export default function DashPosts() {
                   <td className="px-6 py-4">
                     <Link
                       className="text-teal-500 hover:underline"
-                      to={`/update-post/${post._id}`}
+                      to={`/updatepost/${post._id}`}
                     >
                       Edit
                     </Link>
