@@ -60,6 +60,7 @@ export default function DashSidebar() {
                 Posts
         </SidebarItem>
         )}
+        {currentUser.isAdmin &&(
         <SidebarItem
              active={tab === 'users'}
                 icon={HiOutlineUserGroup}
@@ -68,6 +69,7 @@ export default function DashSidebar() {
               >
                 Users
         </SidebarItem>
+        )}
         <SidebarItem
           icon={HiArrowSmRight}
           className='cursor-pointer'
