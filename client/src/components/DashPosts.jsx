@@ -18,6 +18,9 @@ export default function DashPosts() {
         const data = await res.json();
         if (res.ok) {
           setUserPosts(data.posts);
+          if (data.posts.length < 9) {
+            setShowMore(false); // ✅ Fix added here
+          }
         }
       } catch (error) {
         console.log(error.message);
