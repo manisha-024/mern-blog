@@ -108,7 +108,7 @@ export default function Header() {
           </div>
         ) : (
           <Link to='/signin'>
-            <Button color='purple' outline>
+            <Button color='pink' outline>
               Sign In
             </Button>
           </Link>
