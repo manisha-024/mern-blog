@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className='flex flex-col lg:flex-row items-center max-w-6xl mx-auto px-3 p-10 gap-10'>
+      <div className='flex flex-col lg:flex-row items-center max-w-6xl mx-auto px-3 p-4 gap-10'>
         <div className='w-full lg:w-1/2 flex flex-col gap-6'>
           <h1 className='text-3xl font-bold lg:text-6xl pt-10'>Welcome to my Blog</h1>
           
@@ -176,7 +176,7 @@ export default function Home() {
         {posts && posts.length > 0 && (
           <div className='flex flex-col gap-6'>
             <h2 className='text-2xl font-semibold text-center'>Recent Posts</h2>
-            <div className='flex flex-wrap gap-3'>
+            <div className='flex flex-wrap gap-3 justify-center items-center'>
               {posts.map((post) => (
                 <PostCard key={post._id} post={post} />
               ))}
@@ -188,6 +188,7 @@ export default function Home() {
               View all posts
             </Link>
           </div>
+          
         )}
       </div>
     </div>
