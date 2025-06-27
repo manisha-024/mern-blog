@@ -67,6 +67,15 @@ export default function CommentSection({ postId }) {
     }
   };
 
+    const handleEdit = async (comment, editedContent) => {
+    setComments(
+      comments.map((c) =>
+        c._id === comment._id ? { ...c, content: editedContent } : c
+      )
+    );
+  };
+
+
   useEffect(() => {
     const getComments = async () => {
       try {
@@ -139,12 +148,13 @@ export default function CommentSection({ postId }) {
             <div className='border border-gray-400 py-1 px-2 rounded-sm'>
               <p>{comments.length}</p>
             </div>
-          </div>
+          </div> 
           {comments.map((comment) => (
             <Comment
               key={comment._id}
               comment={comment}
               onLike={handleLike}
+              onEdit={handleEdit}
             />
           ))}
         </>
