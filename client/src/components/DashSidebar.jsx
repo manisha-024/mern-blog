@@ -4,7 +4,7 @@ import {
   SidebarItem,
   SidebarItemGroup
 } from 'flowbite-react';
-import { HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiUser,HiAnnotation } from 'react-icons/hi';
+import { HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiUser,HiAnnotation,HiChartPie } from 'react-icons/hi';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
@@ -16,12 +16,15 @@ export default function DashSidebar() {
     const dispatch = useDispatch();
   const {currentUser} = useSelector(state=>state.user);
   useEffect(() => {
-    const urlParams = new URLSearchParams(location.search);
-    const tabFromUrl = urlParams.get('tab');
-    if (tabFromUrl) {
-      setTab(tabFromUrl);
-    }
-  }, [location.search]);
+  const urlParams = new URLSearchParams(location.search);
+  const tabFromUrl = urlParams.get('tab');
+  if (!tabFromUrl) {
+    navigate('/dashboard?tab=dash', { replace: true });
+  } else {
+    setTab(tabFromUrl);
+  }
+}, [location.search]);
+
   const handleSignout = async()=>{
      try {
         const res = await fetch('/api/user/signout', {
@@ -40,6 +43,17 @@ export default function DashSidebar() {
   return (
     <Sidebar className='w-full md:w-56'>
       <SidebarItemGroup className='flex flex-col gap-1'>
+        {currentUser && currentUser.isAdmin && (
+  <SidebarItem
+    active={tab === 'dash' || !tab}
+    icon={HiChartPie}
+    onClick={() => navigate('/dashboard?tab=dash')}
+    className='cursor-pointer'
+  >
+    Dashboard
+  </SidebarItem>
+)}
+
         <SidebarItem
           active={tab === 'profile'}
           icon={HiUser}
