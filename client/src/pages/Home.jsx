@@ -76,7 +76,7 @@ export default function Home() {
   }, [galleryImages.length]);
 
   return (
-    <div className='bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200'>
+    <div className='bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
       <div className='flex flex-col lg:flex-row items-center max-w-6xl mx-auto px-3 p-4 gap-10'>
         <div className='w-full lg:w-1/2 flex flex-col gap-6'>
           <h1 className='text-3xl font-bold lg:text-6xl pt-10'>Welcome to my Blog</h1>

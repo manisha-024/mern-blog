@@ -13,7 +13,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsGithub, BsDribbble } from 'react-
 
 export default function FooterComponent() {
   return (
-    <Footer container className="border border-t-8 border-pink-600 bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-rose-100 via-pink-100 to-rose-100">
+    <Footer container className="border border-t-8 border-pink-600 bg-pink-100">
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid w-full justify-between sm:flex md:grid-cols-1">
           <div className="mt-5">

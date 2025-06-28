@@ -64,7 +64,7 @@ export default function About() {
   };
 
   return (
-    <section className="relative bg-gradient-to-r from-rose-50 via-pink-100 to-pink-200 py-16 px-6 overflow-hidden">
+    <section className="relative py-16 px-6 overflow-hidden bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900">
       <div className="absolute inset-0 w-full h-full -z-10">
         <svg
           className="w-full h-full"

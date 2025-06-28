@@ -58,7 +58,7 @@ export default function Header() {
       }
   }
   return (
-    <Navbar className='bg-pink-50 border-rose-400 border-b-2'>
+    <Navbar className='bg-pink-100 border-rose-400 border-b-2'>
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -146,7 +146,7 @@ export default function Header() {
       </div>
 
       <NavbarCollapse>
-        <NavbarLink as={Link} to="/" active={path === '/'}>
+        <NavbarLink className='text-black hover:text-pink-800' as={Link} to="/" active={path === '/'}>
           Home
         </NavbarLink>
         <NavbarLink as={Link} to="/about" active={path === '/about'}>
