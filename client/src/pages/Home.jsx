@@ -14,10 +14,23 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [typeSpeed, setTypeSpeed] = useState(150);
   
+  // Gallery animation state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   const texts = [
     'Frontend Developer',
     'Backend Developer', 
     'Full Stack Developer'
+  ];
+
+  // Gallery images - replace with your actual image paths
+  const galleryImages = [
+    '/profile.jpeg',
+    '/profile.jpeg',
+    '/profile.jpeg',
+    '/profile.jpeg',
+    '/profile.jpeg'
+    
   ];
 
   useEffect(() => {
@@ -54,8 +67,17 @@ export default function Home() {
     return () => clearTimeout(timeoutId);
   }, [currentText, isDeleting, currentIndex, typeSpeed, texts]);
 
+  // Gallery animation effect
+  useEffect(() => {
+    const galleryInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(galleryInterval);
+  }, [galleryImages.length]);
+
   return (
-    <div>
+    <div className='bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-300'>
       <div className='flex flex-col lg:flex-row items-center max-w-6xl mx-auto px-3 p-4 gap-10'>
         <div className='w-full lg:w-1/2 flex flex-col gap-6'>
           <h1 className='text-3xl font-bold lg:text-6xl pt-10'>Welcome to my Blog</h1>
@@ -74,7 +96,7 @@ export default function Home() {
           </div>
           
           <Button
-            onClick={() => navigate('/search')}
+            onClick={() => navigate('/projects')}
             className="
               group
               !bg-transparent
@@ -159,13 +181,57 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className='w-full lg:w-1/2 flex justify-center'>
-          <img
-            src='/your-photo.jpg' 
-            alt='Manisha'
-            className='rounded-lg shadow-lg max-w-full h-auto'
-          />
+        {/* Gallery section - only visible on large screens */}
+        <div className='hidden lg:flex w-full lg:w-1/2 justify-center items-center'>
+          <div className='relative w-80 h-80 overflow-hidden rounded-xl shadow-2xl'>
+            {/* Background gradient */}
+            <div className='absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-200 opacity-30'></div>
+            
+            {/* Image gallery */}
+            <div className='relative w-full h-full'>
+              {galleryImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Gallery image ${index + 1}`}
+                  className={`
+                    absolute inset-0 w-full h-full object-cover rounded-xl
+                    transition-all duration-1000 ease-in-out
+                    ${index === currentImageIndex 
+                      ? 'opacity-100 scale-100' 
+                      : 'opacity-0 scale-105'
+                    }
+                  `}
+                />
+              ))}
+            </div>
+
+            {/* Overlay with floating elements */}
+            <div className='absolute inset-0 pointer-events-none'>
+              <div className='absolute top-4 right-4 w-3 h-3 bg-rose-400 rounded-full animate-pulse'></div>
+              <div className='absolute bottom-6 left-6 w-2 h-2 bg-pink-400 rounded-full animate-bounce'></div>
+              <div className='absolute top-1/3 left-4 w-1 h-1 bg-rose-300 rounded-full animate-ping'></div>
+            </div>
+
+            {/* Image indicators */}
+            <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'>
+              {galleryImages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`
+                    w-2 h-2 rounded-full transition-all duration-300
+                    ${index === currentImageIndex 
+                      ? 'bg-rose-600 w-6' 
+                      : 'bg-rose-300 hover:bg-rose-400'
+                    }
+                  `}
+                ></div>
+              ))}
+            </div>
+          </div>
         </div>
+
+
       </div>
 
       <div className='mr-8 ml-8 p-3 bg-amber-100 dark:bg-slate-700'>
