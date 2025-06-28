@@ -41,6 +41,7 @@ export default function DashSidebar() {
       }
   }
   return (
+    <div className='bg-pink-50 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
     <Sidebar className='w-full md:w-56'>
       <SidebarItemGroup className='flex flex-col gap-1'>
         {currentUser && currentUser.isAdmin && (
@@ -103,5 +104,6 @@ export default function DashSidebar() {
         </SidebarItem>
       </SidebarItemGroup>
     </Sidebar>
+    </div>
   );
 }

@@ -101,7 +101,7 @@ export default function Search() {
   };
 
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col md:flex-row bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
       <div className='p-7 border-b md:border-r md:min-h-screen border-gray-500'>
         <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
           <div className='flex   items-center gap-2'>

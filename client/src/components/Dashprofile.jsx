@@ -133,7 +133,7 @@ const handleSignout = async()=>{
       <TextInput type='text' id='username' placeholder='username' defaultValue={currentUser.username}     onChange={handleChange}/>
       <TextInput type='email' id='email' placeholder='email' defaultValue={currentUser.email}             onChange={handleChange}/>
       <TextInput type='password' id='password' placeholder='password' defaultValue={currentUser.password} onChange={handleChange}/>
-      <Button type='submit' className="w-full bg-gradient-to-r from-rose-200 to-pink-900 text-white hover:from-rose-300 hover:to-pink-800 transition-all" outline disabled={loading}>
+      <Button type='submit' className="w-full bg-gradient-to-r from-rose-100 to-pink-700 text-white hover:from-rose-300 hover:to-pink-800 transition-all" outline disabled={loading}>
         {loading ? 'Loading...' : 'Update'}</Button>
       {
         currentUser.isAdmin && (

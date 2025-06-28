@@ -39,7 +39,7 @@ export default function Signup() {
   };
 
   return (
-    <div className='min-h-screen mt-20'>
+    <div className='min-h-screen py-20 bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
       <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row gap-8 md:items-center'>
         {/* Left Side */}
         <div className='flex-1'> 

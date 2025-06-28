@@ -18,7 +18,7 @@ export default function Dashboard() {
         }
     }, [location.search]);
     return(
-      <div className='min-h-screen flex felx-col md:flex-row'>
+      <div className='min-h-screen flex felx-col md:flex-row bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
         <div className='md:w-56'>
         <DashSidebar/>
         </div>
