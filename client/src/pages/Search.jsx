@@ -118,7 +118,7 @@ export default function Search() {
           </div>
           <div className='flex items-center gap-2'>
             <label className='font-semibold'>Sort:</label>
-            <Select onChange={handleChange} value={sidebarData.sort} id='sort'>
+            <Select className='w-19' onChange={handleChange} value={sidebarData.sort} id='sort'>
               <option value='desc'>Latest</option>
               <option value='asc'>Oldest</option>
             </Select>
@@ -129,10 +129,11 @@ export default function Search() {
               onChange={handleChange}
               value={sidebarData.category}
               id='category'
+              className='w-32'
             >
               <option value='uncategorized'>Uncategorized</option>
               <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
+              <option value='node'>node</option>
               <option value='javascript'>JavaScript</option>
             </Select>
           </div>
