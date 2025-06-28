@@ -25,11 +25,10 @@ export default function Home() {
 
   // Gallery images - replace with your actual image paths
   const galleryImages = [
-    '/profile.jpeg',
-    '/profile.jpeg',
-    '/profile.jpeg',
-    '/profile.jpeg',
-    '/profile.jpeg'
+    '/HOME.png',
+    '/about.png',
+    '/projects.png',
+    '/read.png'
     
   ];
 
@@ -77,7 +76,7 @@ export default function Home() {
   }, [galleryImages.length]);
 
   return (
-    <div className='bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-300'>
+    <div className='bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200'>
       <div className='flex flex-col lg:flex-row items-center max-w-6xl mx-auto px-3 p-4 gap-10'>
         <div className='w-full lg:w-1/2 flex flex-col gap-6'>
           <h1 className='text-3xl font-bold lg:text-6xl pt-10'>Welcome to my Blog</h1>
@@ -183,7 +182,7 @@ export default function Home() {
 
         {/* Gallery section - only visible on large screens */}
         <div className='hidden lg:flex w-full lg:w-1/2 justify-center items-center'>
-          <div className='relative w-80 h-80 overflow-hidden rounded-xl shadow-2xl'>
+          <div className='relative w-90 h-90 overflow-hidden rounded-xl shadow-2xl'>
             {/* Background gradient */}
             <div className='absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-200 opacity-30'></div>
             
