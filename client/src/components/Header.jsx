@@ -14,6 +14,8 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 import { useSelector,useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { signoutSuccess } from '../redux/user/userSlice';
+import { apiFetch } from '../utils/api';
+
 export default function Header() {
   const location = useLocation();
   const path = location.pathname;

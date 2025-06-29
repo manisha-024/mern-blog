@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import {FaCheck,FaTimes} from 'react-icons/fa';
+import { apiFetch } from '../utils/api';
+
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
   const [users, setUsers] = useState([]);

@@ -12,6 +12,8 @@ import { updateStart,updateSuccess,updateFailure,
 import { useDispatch } from 'react-redux';
 import {HiOutlineExclamationCircle} from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { apiFetch } from '../utils/api';
+
 
 export default function Dashprofile() {
   const {currentUser,error,loading} = useSelector(state=>state.user);

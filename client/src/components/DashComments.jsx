@@ -10,6 +10,7 @@ import {
 } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { FaCheck, FaTimes } from 'react-icons/fa';
+import { apiFetch } from '../utils/api';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user); // ✅ Fixed selector

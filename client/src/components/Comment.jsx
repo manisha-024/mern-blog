@@ -3,6 +3,7 @@ import { Button, Textarea } from 'flowbite-react';
 import moment from 'moment';
 import {FaThumbsUp} from 'react-icons/fa'
 import { useSelector } from 'react-redux';
+import { apiFetch } from '../utils/api';
 export default function Comment({comment, onLike,onEdit,onDelete}) {
     const [user, setUser] = useState({});
     const { currentUser } = useSelector((state) => state.user);

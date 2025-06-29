@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "flowbite-react";
 import {HiOutlineExclamationCircle} from 'react-icons/hi';
+import { apiFetch } from '../utils/api';
+
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);

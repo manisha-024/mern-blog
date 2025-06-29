@@ -3,7 +3,7 @@ import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
 import { Button } from 'flowbite-react';
-
+import {apiFetch} from '../utils/api';
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();

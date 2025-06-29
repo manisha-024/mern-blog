@@ -8,6 +8,8 @@ import {
 } from 'react-icons/hi';
 import { Button, Table } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import { apiFetch } from '../utils/api';
+
 
 export default function DashboardComp() {
   const [users, setUsers] = useState([]);

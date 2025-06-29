@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { Alert, Button, Label, TextInput, Spinner } from 'flowbite-react';
 import OAuth from '../components/OAuth';
+import {apiFetch} from '../utils/api';
+
 
 export default function Signup() {
   const [formData, setFormData] = useState({});

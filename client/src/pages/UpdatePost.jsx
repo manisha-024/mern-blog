@@ -4,6 +4,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import {apiFetch} from '../utils/api';
+
 
 export default function UpdatePost() {
    const [file, setFile] = useState(null);
