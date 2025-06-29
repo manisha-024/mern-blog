@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Globe, Brain, Heart, PenTool, Play, Pause } from 'lucide-react';
 
+
 const projectsData = [
   {
     id: 1,
