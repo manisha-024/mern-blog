@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { Alert, Button, Label, TextInput, Spinner } from 'flowbite-react';
 import OAuth from '../components/OAuth';
-import {apiFetch} from '../utils/api';
 
 
 export default function Signup() {
@@ -22,7 +21,7 @@ export default function Signup() {
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await apiFetch('/api/auth/signup', {
+      const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

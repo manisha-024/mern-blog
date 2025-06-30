@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
-import {apiFetch} from '../utils/api';
 
 export default function CreatePost() {
    const [file, setFile] = useState(null);
@@ -14,7 +13,7 @@ export default function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await apiFetch('/api/post/create', {
+      const res = await fetch('/api/post/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
