@@ -55,12 +55,12 @@ export const signin = async (req, res, next) => {
 
     const { password: pass, ...rest } = validUser._doc;
 
-    res
+        res
       .status(200)
       .cookie('access_token', token, {
         httpOnly: true,
-         secure: false,    
-         sameSite: 'Lax', 
+        secure: true,
+        sameSite: 'None',
       })
       .json(rest);
   } catch (error) {
@@ -79,14 +79,15 @@ export const google = async (req, res, next) => {
         process.env.JWT_SECRET
       );
       const { password, ...rest } = user._doc;
-      res
+        res
         .status(200)
         .cookie('access_token', token, {
           httpOnly: true,
-           secure: false,    
-    sameSite: 'Lax', 
+          secure: true,
+          sameSite: 'None',
         })
         .json(rest);
+
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
@@ -110,11 +111,11 @@ export const google = async (req, res, next) => {
         .status(200)
         .cookie('access_token', token, {
           httpOnly: true,
-          domain: 'localhost', // Add this
-          path: '/', // Add this
-
+          secure: true,
+          sameSite: 'None',
         })
         .json(rest);
+
     }
   } catch (error) {
     next(error);
