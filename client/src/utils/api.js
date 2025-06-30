@@ -2,7 +2,7 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const apiFetch = async (endpoint, options = {}) => {
   try {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(`${BASE_URL}/api${endpoint}`, {
       credentials: 'include',
       ...options,
       headers: {
@@ -11,7 +11,6 @@ export const apiFetch = async (endpoint, options = {}) => {
       },
     });
 
-    // Let the calling function handle `.json()` like it's doing now
     return res;
   } catch (error) {
     throw new Error(error.message || 'Network Error');
