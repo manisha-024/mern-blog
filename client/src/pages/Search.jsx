@@ -6,7 +6,7 @@ import PostCard from '../components/PostCard';
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
-    sort: 'desc',
+    order: 'desc',
     category: 'uncategorized',
   });
 
@@ -16,19 +16,18 @@ export default function Search() {
   const [showMore, setShowMore] = useState(false);
 
   const location = useLocation();
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
-    const sortFromUrl = urlParams.get('sort');
+    const orderFromUrl = urlParams.get('order');
     const categoryFromUrl = urlParams.get('category');
-    if (searchTermFromUrl || sortFromUrl || categoryFromUrl) {
+    if (searchTermFromUrl || orderFromUrl || categoryFromUrl) {
       setSidebarData({
         ...sidebarData,
         searchTerm: searchTermFromUrl,
-        sort: sortFromUrl,
+        order: orderFromUrl,
         category: categoryFromUrl,
       });
     }
@@ -36,7 +35,7 @@ export default function Search() {
     const fetchPosts = async () => {
       setLoading(true);
       const searchQuery = urlParams.toString();
-      const res = await fetch(`/api/post/getposts?${searchQuery}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/post/getposts?${searchQuery}`);
       if (!res.ok) {
         setLoading(false);
         return;
@@ -59,9 +58,9 @@ export default function Search() {
     if (e.target.id === 'searchTerm') {
       setSidebarData({ ...sidebarData, searchTerm: e.target.value });
     }
-    if (e.target.id === 'sort') {
+    if (e.target.id === 'order') {
       const order = e.target.value || 'desc';
-      setSidebarData({ ...sidebarData, sort: order });
+      setSidebarData({ ...sidebarData, order });
     }
     if (e.target.id === 'category') {
       const category = e.target.value || 'uncategorized';
@@ -73,7 +72,7 @@ export default function Search() {
     e.preventDefault();
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('searchTerm', sidebarData.searchTerm);
-    urlParams.set('sort', sidebarData.sort);
+    urlParams.set('order', sidebarData.order);
     urlParams.set('category', sidebarData.category);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
@@ -85,7 +84,7 @@ export default function Search() {
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('startIndex', startIndex);
     const searchQuery = urlParams.toString();
-    const res = await fetch(`/api/post/getposts?${searchQuery}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/post/getposts?${searchQuery}`);
     if (!res.ok) {
       return;
     }
@@ -104,7 +103,7 @@ export default function Search() {
     <div className='flex flex-col md:flex-row bg-pink-50 lg:bg-pink-50 bg-gradient-to-r from-pink-50 to-rose-200 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900'>
       <div className='p-7 border-b md:border-r md:min-h-screen border-gray-500'>
         <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
-          <div className='flex   items-center gap-2'>
+          <div className='flex items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
               Search Term:
             </label>
@@ -118,7 +117,7 @@ export default function Search() {
           </div>
           <div className='flex items-center gap-2'>
             <label className='font-semibold'>Sort:</label>
-            <Select className='w-19' onChange={handleChange} value={sidebarData.sort} id='sort'>
+            <Select className='w-19' onChange={handleChange} value={sidebarData.order} id='order'>
               <option value='desc'>Latest</option>
               <option value='asc'>Oldest</option>
             </Select>

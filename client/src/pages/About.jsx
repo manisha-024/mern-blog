@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Resume from '../components/Resume';
+import { FaGithub, FaLinkedin } from 'react-icons/fa'; 
 const featureData = {
   academics: {
     title: 'Academic Journey',
@@ -171,6 +172,27 @@ export default function About() {
           </div>
         </div>
       )}
+      <div className="flex justify-center gap-6 mt-10">
+  <a
+    href="https://linkedin.com/in/manishakishtapuram"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-40 flex items-center justify-center gap-2 bg-white bg-opacity-80 rounded-2xl p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+  >
+    <FaLinkedin className="text-blue-600 text-xl" />
+    <span className="text-sm font-medium text-gray-700">LinkedIn</span>
+  </a>
+
+  <a
+    href="https://github.com/manisha-024"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-40 flex items-center justify-center gap-2 bg-white bg-opacity-80 rounded-2xl p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+  >
+    <FaGithub className="text-gray-800 text-xl" />
+    <span className="text-sm font-medium text-gray-700">GitHub</span>
+  </a>
+</div>
     </section>
   );
 }
