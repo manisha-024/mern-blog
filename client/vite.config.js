@@ -3,18 +3,16 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import flowbiteReact from "flowbite-react/plugin/vite";
 
-
 export default defineConfig({
-   server: {
+  server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
-        secure: false,
+        target: 'https://mern-blog-api-t4f0.onrender.com',
+        changeOrigin: true,
+        secure: true,
       },
     },
   },
   plugins: [tailwindcss(), react(), flowbiteReact()],
   darkMode: 'class',
 })
-
-

@@ -20,19 +20,17 @@ mongoose
     console.log(err);
   });
 
-
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-const port =process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log('Server is running on port 3000!');
-});
-
+// Update CORS to allow your frontend domain
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://mern-blog-api-t4f0.onrender.com' 
+  ],
   credentials: true,
 }));
 
@@ -51,3 +49,8 @@ app.use((err, req, res, next) => {
   });
 });
 
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}!`);
+});
