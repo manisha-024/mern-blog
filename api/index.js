@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO)
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-frontend-url.netlify.app'],
+  origin: ['http://localhost:5173', 'https://buildwithmern.netlify.app'],
   credentials: true,
 }));
 
@@ -49,3 +49,4 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
   res.send('Backend is working ✅');
 });
+
