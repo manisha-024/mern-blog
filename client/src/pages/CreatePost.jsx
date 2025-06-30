@@ -14,6 +14,7 @@ export default function CreatePost() {
     e.preventDefault();
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/post/create`, {
+        credentials:'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
