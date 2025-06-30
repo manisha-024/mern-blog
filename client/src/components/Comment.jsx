@@ -31,6 +31,7 @@ export default function Comment({comment, onLike,onEdit,onDelete}) {
   const handleSave = async () => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/comment/editComment/${comment._id}`, {
+        credentials:'include',
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
