@@ -28,9 +28,7 @@ app.use(cookieParser());
 // Update CORS to allow your frontend domain
 app.use(cors({
   origin: [
-    'http://localhost:5173',
-    'https://mern-blog-api-t4f0.onrender.com' 
-  ],
+    'http://localhost:5173'  ],
   credentials: true,
 }));
 

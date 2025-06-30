@@ -100,7 +100,7 @@ export default function Dashprofile() {
 
 const handleSignout = async()=>{
    try {
-      const res = await apiFetch('/api/user/signout', {
+      const res = await apifetch('${import.meta.env.VITE_API_URL || ''}/api/user/signout', {
         method: 'POST',
       });
       const data = await res.json();
